@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.get('/messages', getmsg.messages); 
 app.get('/messages/:user', getmsg.getMeessage); 
 app.post('/postmessages', getmsg.postmessages); 
+app.get('/messagesfindOne', getmsg.messagesfindOne); 
 io.on('connection', () =>{
   console.log('socket is connected')
 })
