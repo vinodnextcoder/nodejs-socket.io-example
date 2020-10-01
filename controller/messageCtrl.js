@@ -14,8 +14,8 @@ function messages(req, res) {
     })
 }
 msg.messages=messages;
+
 async function postmessages(req, res) {
-    console.log(req.body)
     try {
         var message = new Message(req.body);
         var savedMessage = await message.save()
@@ -36,4 +36,10 @@ async function postmessages(req, res) {
     }
 }
 msg.postmessages=postmessages;
+function messagesfindOne(req, res) {
+    Message.findOne({_id:req.body.id}, (err, messages) => {
+        res.send(messages);
+    })
+}
+msg.messagesfindOne=messagesfindOne;
 module.exports=msg;
